@@ -1,0 +1,483 @@
+/* ============================================
+   ELETRO SEVEN - ESTILOS COMPLETOS
+   ============================================ */
+
+/* RESET E FONTES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* CORES PRINCIPAIS */
+:root {
+    --vermelho: #dc3545;
+    --branco: #ffffff;
+    --amarelo: #ffc107;
+    --amarelo-escuro: #e0a800;
+    --cinza-claro: #f8f9fa;
+    --cinza-escuro: #343a40;
+    --sombra: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--sombra);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    background: linear-gradient(45deg, var(--vermelho), var(--amarelo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500 !important;
+    margin: 0 10px;
+    color: var(--cinza-escuro) !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: var(--amarelo);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link:hover {
+    color: var(--amarelo) !important;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    background: linear-gradient(135deg, var(--vermelho) 0%, var(--cinza-escuro) 100%);
+    color: var(--branco);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255,193,7,0.1) 0%, transparent 50%);
+}
+
+.hero-title {
+    background: linear-gradient(45deg, var(--branco), var(--amarelo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 10px rgba(255,193,7,0.5)); }
+    to { filter: drop-shadow(0 0 20px rgba(255,193,7,0.8)); }
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+}
+
+.hero-animation {
+    position: relative;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* ============================================
+   ESTATÍSTICAS
+   ============================================ */
+.stats {
+    background: linear-gradient(135deg, var(--cinza-escuro), var(--vermelho));
+    position: relative;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   SEÇÕES GERAIS
+   ============================================ */
+.section {
+    padding: 5rem 0;
+}
+
+.section h2 {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--amarelo);
+    border-radius: 2px;
+}
+
+/* ============================================
+   CARDS DE SERVIÇO
+   ============================================ */
+.service-card, .diferencial-card {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--sombra);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255,193,7,0.1);
+    height: 100%;
+}
+
+.service-card:hover, .diferencial-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    border-color: var(--amarelo);
+}
+
+.service-icon, .diferencial-card i {
+    width: 80px;
+    height: 80px;
+    background: var(--amarelo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--cinza-escuro);
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 30px rgba(255,193,7,0.4);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 15px 40px rgba(255,193,7,0.6);
+}
+
+/* ============================================
+   SIMULAÇÃO DE ORÇAMENTO
+   ============================================ */
+.simulacao-card {
+    background: linear-gradient(145deg, var(--branco), var(--cinza-claro));
+    border-radius: 25px;
+    border: 2px solid rgba(255,193,7,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.simulacao-card:hover {
+    border-color: var(--amarelo);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+}
+
+.valor-total {
+    background: linear-gradient(45deg, var(--vermelho), var(--amarelo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.form-label {
+    color: var(--cinza-escuro);
+    font-weight: 600;
+}
+
+.form-select, .form-control {
+    border-radius: 15px;
+    border: 2px solid rgba(255,193,7,0.3);
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--amarelo);
+    box-shadow: 0 0 0 0.2rem rgba(255,193,7,0.25);
+}
+
+/* ============================================
+   CONTACT CARD
+   ============================================ */
+.contact-card {
+    background: linear-gradient(145deg, var(--cinza-escuro), var(--vermelho));
+    border-radius: 25px;
+    color: var(--branco);
+    backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: linear-gradient(135deg, var(--cinza-escuro), var(--vermelho));
+    color: var(--branco);
+}
+
+.footer h4, .footer h5 {
+    color: var(--amarelo);
+}
+
+.footer ul li {
+    padding: 0.5rem 0;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer ul li:hover {
+    opacity: 1;
+    padding-left: 1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+/* ============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================ */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background: linear-gradient(45deg, #25d366, #128c7e);
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float span {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* ============================================
+   PARTICULAS (OPCIONAL)
+   ============================================ */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* ============================================
+   BOTÕES
+   ============================================ */
+.btn {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-warning {
+    background: linear-gradient(45deg, var(--amarelo), var(--amarelo-escuro));
+    border: none;
+    color: var(--cinza-escuro);
+}
+
+.btn-warning:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,193,7,0.4);
+    color: var(--cinza-escuro);
+}
+
+.btn-outline-light:hover {
+    background: var(--amarelo);
+    border-color: var(--amarelo);
+    color: var(--cinza-escuro);
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float span {
+        display: none;
+    }
+    
+    .stats .display-1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .service-card, .diferencial-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* ============================================
+   ANIMATIONS (Animate.css custom)
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate__animated {
+    animation-duration: 0.8s;
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}
+
+/* SCROLLBAR CUSTOM */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cinza-claro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--amarelo);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--amarelo-escuro);
+}
+
+/* ============================================
+   LOADING
+   ============================================ */
+body:not(.loaded) {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
